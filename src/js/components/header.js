@@ -37,7 +37,6 @@ export function renderHeader() {
         e.preventDefault();
         figure.classList.toggle("colapse-spin");
         menuOverlay.classList.toggle("visible");
-        menuOverlay.classList.toggle("hidden");
       });
   
       // Close menu when a link is clicked

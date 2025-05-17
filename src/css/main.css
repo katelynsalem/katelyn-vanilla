@@ -262,7 +262,9 @@ a:focus::after {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2000;
+  z-index: 40; /* below hamburger icon which is 50 */
+  opacity: 0;
+  pointer-events: none;
   transition: opacity 0.3s ease;
 }
 .menu-overlay ul {

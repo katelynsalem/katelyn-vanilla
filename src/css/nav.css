@@ -73,7 +73,8 @@ nav a {
     right: 1rem;
     width:48px;
     flex-shrink: 0;
-
+    position: relative;
+    z-index: 50;
 }
   
   /* Show menu when active */
