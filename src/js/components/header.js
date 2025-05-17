@@ -20,7 +20,7 @@ export function renderHeader() {
 
       <div id="menu-overlay" class="menu-overlay">
         <ul>
-          <li><a href="/post.html?id=1">Blog</a></li>
+          <li><a href="/post.html?id=2">Blog</a></li>
         </ul>
       </div>
     `;
