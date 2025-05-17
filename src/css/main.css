@@ -251,6 +251,37 @@ a:focus::after {
   display:inline-block;
   line-height: 1.6;
 }
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 0.3s ease;
+}
+.menu-overlay ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.menu-overlay li {
+  margin: 1rem 0;
+}
+.menu-overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.menu-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .post-arrow {
   font-size: 0.8rem; /* adjust the size as needed */
   /* margin-left: -0.7rem; */
