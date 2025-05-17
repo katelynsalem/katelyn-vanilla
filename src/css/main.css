@@ -225,10 +225,10 @@ a:focus::after {
   margin-bottom: 1.2rem;
 }
 .post-loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
 }
 
 .navbar {
