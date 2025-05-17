@@ -32,6 +32,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const postElement = BlogPost(match);
     container.innerHTML = "";
     container.appendChild(postElement);
+    // Allow the DOM to register the new element before applying the transition
+    requestAnimationFrame(() => {
+        postElement.classList.add('visible');
+  });
   } catch (err) {
     container.innerHTML = "<p>Error loading post.</p>";
     console.error(err);
