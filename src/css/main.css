@@ -265,7 +265,7 @@ a:focus::after {
   z-index: 40; /* below hamburger icon which is 50 */
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
 }
 .menu-overlay ul {
   list-style: none;
