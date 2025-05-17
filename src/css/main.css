@@ -305,6 +305,9 @@ a:focus::after {
   padding: .5rem;
   border-bottom: 1px solid #ccc;
 }
+.blog-post.visible {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
 #post-container {
   padding-top: 50px;
  }
