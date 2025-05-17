@@ -39,18 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // Load blog posts
-  loadBlogPosts();
+  //loadBlogPosts();
 });
 
-async function loadBlogPosts() {
-  try {
-    // Example: loading one post
-    const response = await fetch('/posts/personal/test-post.json');
-    const postData = await response.json();
+// async function loadBlogPosts() {
+//   try {
+//     // Example: loading one post
+//     const response = await fetch('/posts/personal/test-post.json');
+//     const postData = await response.json();
 
-    const postElement = BlogPost(postData);
-    blogContainer.appendChild(postElement);
-  } catch (error) {
-    console.error('Error loading blog posts:', error);
-  }
-}
+//     const postElement = BlogPost(postData);
+//     blogContainer.appendChild(postElement);
+//   } catch (error) {
+//     console.error('Error loading blog posts:', error);
+//   }
+// }

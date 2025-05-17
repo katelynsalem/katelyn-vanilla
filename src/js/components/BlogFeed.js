@@ -1,8 +1,20 @@
+import { API_URL } from './config.js';
+
 export async function renderBlogFeed(containerSelector) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
   
-    const posts = await fetch('/api/posts').then(res => res.json()).catch(() => []);
+    const endpoint = `${API_URL}/posts`;
+
+    let posts = [];
+    try {
+      const res = await fetch(endpoint);
+      if (!res.ok) throw new Error('Failed to fetch posts');
+      posts = await res.json();
+    } catch (err) {
+      console.error('Error fetching recent posts:', err);
+    }
+    
     const feed = posts.slice(2, 10);
   
     container.innerHTML = "";
