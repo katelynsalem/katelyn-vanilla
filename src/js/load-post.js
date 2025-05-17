@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
-    const postElement = BlogPost(post);
+    const postElement = BlogPost(match);
     container.innerHTML = "";
     container.appendChild(postElement);
   } catch (err) {
