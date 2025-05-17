@@ -307,6 +307,14 @@ a:focus::after {
 }
 #post-container {
   padding-top: 50px;
+  opacity: 0;
+  transform: translateY(20px); /* optional for a subtle slide-up */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+/* Fade-in state */
+#post-container.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .post-title-wrapper {
