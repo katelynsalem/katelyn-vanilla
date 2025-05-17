@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const post = posts.find(p => p.id === id && p.publish === true);
 
     if (!post) {
-      container.innerHTML = "<p>Post not found.</p>";
+      container.innerHTML = "<p>Post not published.</p>";
       return;
     }
 
