@@ -17,7 +17,9 @@
         <div id="site-header"></div>
         <main>
             <section>
-                <div id="post-container"></div>
+                <div id="post-container">
+                    <p class="loading">Loading...</p>
+                </div>
             </section>
         </main>
         <footer>
@@ -25,6 +27,24 @@
         </footer>
         <script type="module" src="src/js/load-header.js"></script>
         <script type="module" src="src/js/load-post.js"></script>
+        <script type="module">
+            import { TextScrambleEN } from '/src/js/effects/TextScrambleEN.js';
+            document.addEventListener('DOMContentLoaded', () => {
+                const el = document.querySelector('.loading');
+                if (!el) return;
+                const fx = new TextScrambleEN(el);
+                const phrases = ['Loading...', '로딩중...'];
+                let counter = 0;
+                const next = () => {
+                    fx.setText(phrases[counter]).then(() => {
+                    setTimeout(next, 800);
+                    });
+                    counter = (counter + 1) % phrases.length;
+                };      
+                next();
+            });
+        </script>
+
     </body>
 
 </html>
