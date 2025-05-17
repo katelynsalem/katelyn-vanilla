@@ -18,7 +18,7 @@ export function renderHeader() {
           </nav>
       </header>
 
-      <div id="menu-overlay" class="menu-overlay hidden">
+      <div id="menu-overlay" class="menu-overlay">
         <ul>
           <li><a href="/post.html?id=1">Blog</a></li>
         </ul>
