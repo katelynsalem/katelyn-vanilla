@@ -37,13 +37,4 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error(err);
   }
 });
-
-window.addEventListener('DOMContentLoaded', () => {
-    const container = document.getElementById('post-container');
-  
-    // Wait until the blog post has been appended before fading in
-    setTimeout(() => {
-      container.classList.add('visible');
-    }, 100); // small delay to ensure content is rendered
-  });
   
