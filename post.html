@@ -18,7 +18,7 @@
         <main>
             <section>
                 <div id="post-container">
-                    <p class="loading">Loading...</p>
+                    <h2 class="post-loading">Loading...</h2>
                 </div>
             </section>
         </main>
@@ -30,7 +30,7 @@
         <script type="module">
             import { TextScrambleEN } from '/src/js/effects/TextScrambleEN.js';
             document.addEventListener('DOMContentLoaded', () => {
-                const el = document.querySelector('.loading');
+                const el = document.querySelector('.post-loading');
                 if (!el) return;
                 const fx = new TextScrambleEN(el);
                 const phrases = ['Loading...', '로딩중...'];

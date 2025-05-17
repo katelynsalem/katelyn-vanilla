@@ -224,6 +224,9 @@ a:focus::after {
   width: 100%;
   margin-bottom: 1.2rem;
 }
+.post-loading {
+  text-align: center;
+}
 
 .navbar {
   min-height: 3rem;
