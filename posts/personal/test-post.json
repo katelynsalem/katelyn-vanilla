@@ -1,0 +1,16 @@
+{
+    "title": {
+      "en": "The Art of Minimalism: A Philosophy",
+      "ko": "미니멀리즘의 예술: 철학"
+    },
+    "date": "2025-05-01",
+    "content": {
+      "en": "<p>Unicode has largely supplanted<sup data-fn='1'>1</sup> the previous environment of a myriad of incompatible character sets, each used within different locales<sup data-fn='2'>2</sup> and on different computer architectures. Unicode is used to encode the vast majority of text on the Internet, including most web pages, and relevant Unicode support has become a common consideration in contemporary software development.</p>",
+      "ko": "<p>유니코드는 서로 다른 로케일과 컴퓨터 아키텍처에서 사용되는 수많은 호환되지 않는 문자 집합의 이전 환경을 크게 대체했습니다. 유니코드는 대부분의 웹 페이지를 포함한 인터넷 텍스트의 대부분을 인코딩하는 데 사용되며, 관련 유니코드 지원은 현대 소프트웨어 개발에서 일반적으로 고려되는 사항이 되었습니다.</p>"
+    },
+    "imageUrl": "../public/images/catPlaceholder.png",
+    "footnotes": [
+        "A methodology that starts with understanding users’ needs.",
+        "Empathy is key in identifying real-world problems to solve."
+    ]
+  }

@@ -1,0 +1,380 @@
+/* src/css/main.css */
+
+/* === Base styles (mobile first) === */
+
+:root {
+  --black: #2F2F2F;
+  --white: #F8F8F8;
+  --light-green: #DDE5E0;
+  --green: #AEC4B6;
+  --dark-brown: #6C5F62;
+  --desktop-col: calc(((100dvw - 60px) - 220px) / 12);
+  --tablet-col: calc(((100dvw - 40px) - 70px) / 8);
+  --mobile-col: calc(((100dvw - 40px) - 50px) / 6);
+  font-family: 'Roboto Mono',monospace;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 15px;
+  /* letter-spacing: -0.03em; */
+  color-scheme: light dark;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-width: 320px;
+  min-height: 100vh;
+  justify-content: left;
+  align-items: left;
+}
+
+section {
+  margin: 0 0.6rem;
+}
+
+header {
+  text-align: center;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+main {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.125rem;
+  line-height: 2.5rem;
+  letter-spacing: -0.04em;
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.7rem;
+}
+
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+}
+
+button {
+  color: var(--black);
+}
+
+/* button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+} */
+
+a {
+  font-weight: 400;
+  text-decoration: inherit;
+  position: relative;
+  color: inherit;
+  font: inherit;
+  transition: color 0.3s ease;
+}
+a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.05em; /* adjust for alignment */
+  width: 100%;
+  height: 0.4em;
+  background: var(--light-green); /* or use rgba(255,255,0,0.6) for yellow */
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+a:hover::after,
+a:focus::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: var(--black);
+    background-color: var(--white);
+  }
+  button {
+    background-color: var(--white);
+  }
+}
+
+/* .fixed-top {
+  position: fixed;
+  top: 0 ;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+} */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  padding: 0.6rem;
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(0px, 0%);
+  z-index: 100;
+  width: -webkit-fill-available;
+  width: -moz-available;
+  will-change: transform;
+  position: fixed;
+}
+
+.logo {
+  margin-left: 0.6rem;
+  font-size: 1.125rem;
+  font-weight: 300;
+  font-family: 'Work Sans', sans-serif;
+  text-decoration: none;
+  color: var(--black);
+  margin-right: auto;
+  overflow: hidden;
+  display: flex;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.site-main-image-wrapper {
+  translate: none;
+  rotate: none;
+  scale: none;
+  transform: translate(0px, 0px);
+  display: flex;
+  height: 100dvh;
+  width: 100dvw;
+  align-items: center;
+  justify-content: center;
+  transform-origin: center;
+  will-change: transform;
+  inset: 0;
+  position: absolute;
+  z-index: -999;
+  overflow:hidden;
+}
+
+/* Built For Archives does a good job with sizing for different screens */
+.site-main-image {
+  position: absolute;
+  width: 300px;
+  max-height: 100%;
+  transform: translate(15vw, 1vh);
+  overflow: hidden; 
+}
+
+.site-main-content {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  margin: 0 1.2rem;
+}
+
+.site-main-language-wrapper {
+  align-items: center; /* vertically align elements in the wrapper */
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.site-main-subtitle {
+  width: 100%;
+  line-height: 1.25rem;
+  font-weight: 300;
+}
+
+.site-main-title {
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 1.2rem;
+}
+
+.navbar {
+  min-height: 3rem;
+  display: flex;
+  padding: 0 0.8rem;
+}
+
+.navbar-title {
+  padding-top: .5rem;
+  align-self: flex-start;
+}
+
+.navbar-hamburger {
+  align-self: flex-end;
+}
+
+/* Arrows */
+.nav-arrow {
+  font-size: 1rem; /* adjust the size as needed */
+  margin-right: 1rem;
+  opacity: .8;
+  font-family: 'Work Sans', sans-serif; /* same as the other links for consistency */
+  display:inline-block;
+  line-height: 1.6;
+}
+.post-arrow {
+  font-size: 0.8rem; /* adjust the size as needed */
+  /* margin-left: -0.7rem; */
+  opacity: .8;
+  font-family: 'Work Sans', sans-serif;
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Blog posts */
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.blog-post {
+  margin-bottom: 2rem;
+  padding: .5rem;
+  border-bottom: 1px solid #ccc;
+}
+.post-title-wrapper {
+  margin-block-start: 0.83em;
+  height: 9.4rem;
+}
+
+.post-title {
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1.18;
+  /* margin-bottom: 7.5rem; */
+  letter-spacing: -0.04em;
+}
+
+.meta-data {
+  font-size: .9rem;
+  opacity: .7;
+  margin-top: 3rem;
+  margin-left: -0.5rem;
+}
+
+
+.post-language-wrapper {
+  display: flex;
+  align-items: center; /* vertically align elements in the wrapper */
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.post-language-btn {
+  margin: 0;
+  line-height: 1;
+  padding: 0;
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.post-language-btn::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.3em;
+  width: 100%;
+  height: 0.7em;
+  background: var(--light-green);
+  z-index: -1;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.post-language-btn:hover::after,
+.post-language-btn:active::after {
+  transform: scaleX(1);
+}
+
+.post-main-image {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  width: 100vw;
+  max-width: none;
+  transform: translateX(-50%);
+  height: auto;
+  display: block;
+}
+.post-main-image-placeholder {
+  height: 2.5rem;
+  background-color: inherit;
+}
+
+.footnotes {
+ display: grid;
+ grid-template-columns: auto auto;
+ gap:.2rem;
+}
+.footnotes p {
+  margin-top: 0;
+}
+
+.over-left {
+  margin-left: -0.6rem;
+}
+
+/* Characters while they are scrambling */
+.dud {
+  opacity: 0.4;
+}
+
+
+
+
+
+/* === Media queries (for larger screens) === */
+@media (min-width: 640px) {
+  body {
+    padding: 2rem;
+  }
+
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .site-main-image {
+    width: calc(var(--mobile-col)* 5 + 40px);
+  }
+}

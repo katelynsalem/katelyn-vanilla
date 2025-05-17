@@ -1,0 +1,16 @@
+{
+    "title": {
+      "en": "The Art of Minimalism: A Philosophy",
+      "ko": null
+    },
+    "date": "2025-05-01",
+    "content": {
+      "en": "<p>Unicode has largely supplanted<sup data-fn='1'>1</sup> the previous environment of a myriad of incompatible character sets, each used within different locales<sup data-fn='2'>2</sup> and on different computer architectures. Unicode is used to encode the vast majority of text on the Internet, including most web pages, and relevant Unicode support has become a common consideration in contemporary software development.</p>",
+      "ko": null
+    },
+    "imageUrl": "../public/images/catPlaceholder.png",
+    "footnotes": [
+        "A methodology that starts with understanding users’ needs.",
+        "Empathy is key in identifying real-world problems to solve."
+    ]
+  }

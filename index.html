@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="An awesome site that showcases my work!">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Katelyn Salem</title>
+        <link rel="stylesheet" href="src/css/normalize.css" />
+        <link rel="stylesheet" href="src/css/main.css" />
+        <link rel="stylesheet" href="src/css/blog.css" />
+        <link rel="stylesheet" href="src/css/nav.css" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="site-header"></div>
+        <main>
+            <div class="site-main-image-wrapper">
+                <img class="site-main-image" src="../public/images/wireframegirl.png" alt="Wireframe of a girl">
+            </div>
+            <section class="site-main-content">
+                <div class="site-main-language-wrapper">
+                    <span class="post-arrow over-left">→</span>
+                    <button class="post-language-btn">/’한국어로 바꾸기’/</button>
+                </div>
+                <div class="site-main-subtitle">
+                    <p id="main-subtitle1-scramble" style="margin:0;">Based in</p>
+                    <p id="main-subtitle2-scramble" style="margin-top:0; margin-bottom: 0.6rem;">South Korea</p>
+                </div>
+                <div class="site-main-title">
+                    <h2 style="font-size: 2.2rem; letter-spacing: -.05em;">Made for <span id="main-title-scramble">Thoughts</span></h2>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2025 Katelyn Salem</p>
+        </footer>
+        <script type="module" src="src/js/load-header.js"></script>
+        <script type="module">
+            import { TextScrambleEN } from '/src/js/effects/TextScrambleEN.js';
+            document.addEventListener('DOMContentLoaded', () => {
+                const el = document.querySelector('#main-title-scramble');
+                if (!el) return;
+                const fx = new TextScrambleEN(el);
+                const phrases = ['Thoughts', 'Travel', 'Korea', 'Study', 'Life'];
+                let counter = 0;
+                const next = () => {
+                    fx.setText(phrases[counter]).then(() => {
+                    setTimeout(next, 800);
+                    });
+                    counter = (counter + 1) % phrases.length;
+                };      
+                next();
+            });
+        </script>
+        <script type="module">
+            import { TextScramble } from '/src/js/effects/TextScramble.js';
+            document.addEventListener('DOMContentLoaded', () => {
+                const subtitleEl1 = document.querySelector('#main-subtitle1-scramble');
+                const subtitleEl2 = document.querySelector('#main-subtitle2-scramble');
+                const toggleBtn = document.querySelector('.post-language-btn');
+                let isEnglish = false;
+
+                const scrambleSubtitle1 = new TextScramble(subtitleEl1);
+                const scrambleSubtitle2 = new TextScramble(subtitleEl2);
+                const scrambleButton = new TextScramble(toggleBtn);
+                
+                if (toggleBtn) {
+                    toggleBtn.addEventListener('click', () => {
+                    const newLang = isEnglish ? 'ko' : 'en';
+                    // Set scrambling chars based on target language
+                    const koreanChars = 'ㅂㅈㄷㄱㅛㅅㅕㅑㅐㅔㅁㄴㅇㄹㅎㅗㅓㅏㅣㅋㅌㅊㅍㅠㅜㅡㅃㅉㄸㄲㅆㅒㅖ';
+                    const englishChars = 'QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm';
+
+                    const scrambleChars = newLang === 'ko' ? koreanChars : englishChars;
+                    scrambleSubtitle1.setChars(scrambleChars);
+                    scrambleSubtitle2.setChars(scrambleChars);
+                    // Update text with TextScramble
+                    // First: update title with slight delay for content
+                    scrambleSubtitle1.setText(isEnglish ? 'Based in' : '한국에');
+                    scrambleSubtitle2.setText(isEnglish ? 'South Korea' : '기반을 둔');
+                    scrambleButton.setText(isEnglish ? '/’한국어로 바꾸기’/' : '/’Switch to English’/');
+                    isEnglish = !isEnglish;
+                    });
+                }
+
+            });
+        </script>
+    </body>
+
+</html>
