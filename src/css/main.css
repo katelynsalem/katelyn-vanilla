@@ -153,6 +153,7 @@ a:focus::after {
   width: -moz-available;
   will-change: transform;
   position: fixed;
+  height: 58px;
 }
 
 .logo {
@@ -224,12 +225,7 @@ a:focus::after {
   width: 100%;
   margin-bottom: 1.2rem;
 }
-.post-loading {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  min-height: 100vh !important;
-}
+
 
 .navbar {
   min-height: 3rem;
@@ -276,6 +272,10 @@ a:focus::after {
   padding: .5rem;
   border-bottom: 1px solid #ccc;
 }
+.post-container {
+  padding-top: 58px;
+}
+
 .post-title-wrapper {
   margin-block-start: 0.83em;
   height: 9.4rem;
@@ -288,6 +288,13 @@ a:focus::after {
   line-height: 1.18;
   /* margin-bottom: 7.5rem; */
   letter-spacing: -0.04em;
+}
+
+.post-loading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 100vh !important;
 }
 
 .meta-data {
