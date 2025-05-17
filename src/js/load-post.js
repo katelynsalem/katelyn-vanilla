@@ -16,8 +16,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const res = await fetch(`${endpoint}/posts`);
     const posts = await res.json();
-    // Find post where slug matches AND publish is true
-    const post = posts.find(p => p.slug === slug && p.publish === true);
+    // Find post where id matches AND publish is true
+    const post = posts.find(p => p.id === id && p.publish === true);
 
     if (!post) {
       container.innerHTML = "<p>Post not found.</p>";
