@@ -225,7 +225,10 @@ a:focus::after {
   margin-bottom: 1.2rem;
 }
 .post-loading {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .navbar {
