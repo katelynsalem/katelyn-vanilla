@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const container = document.getElementById("post-container");
 
   if (!id || !container) {
-    container.innerHTML = "<p>Post not found.</p>";
+    container.innerHTML = "<p>Invalid search.</p>";
     return;
   }
 
@@ -17,9 +17,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch(`${endpoint}/posts`);
     const posts = await res.json();
     // Find post where id matches AND publish is true
-    const post = posts.find(p => p.id === id && p.publish === true);
+    const match = posts.find(p => String(p.id) === id);
 
-    if (!post) {
+    if (!match) {
+      container.innerHTML = "<p>Post not found.</p>";
+      return;
+    }
+    
+    if (!match.publish) {
       container.innerHTML = "<p>Post not published.</p>";
       return;
     }
