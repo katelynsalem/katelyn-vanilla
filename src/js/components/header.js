@@ -43,7 +43,6 @@ export function renderHeader() {
       const menuLinks = menuOverlay.querySelectorAll("a");
       menuLinks.forEach(link => {
         link.addEventListener("click", () => {
-          menuOverlay.classList.add("hidden");
           menuOverlay.classList.remove("visible");
           figure.classList.remove("colapse-spin");
         });
