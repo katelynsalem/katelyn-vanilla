@@ -1,7 +1,7 @@
 
 export function renderHeader() {
     return `
-      <header class="site-header">
+      <div class="site-header">
           <a href="/index.html" class="logo">katelyn salem</a>
           <nav class="nav">
             <div id="hamburger" class="container">
@@ -16,7 +16,7 @@ export function renderHeader() {
               </div>
             </div>
           </nav>
-      </header>
+      </div>
 
       <div id="menu-overlay" class="menu-overlay">
         <ul>

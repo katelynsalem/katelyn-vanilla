@@ -178,6 +178,10 @@ a:focus::after {
   will-change: transform;
   position: fixed;
   height: 40px;
+
+  /* width: 100%;
+  max-width: 100%;
+  box-sizing: border-box; */
 }
 
 .logo {
@@ -215,8 +219,8 @@ a:focus::after {
 /* Landing Page ------------------------ */
 .site-main-image {
   position: absolute;
-  width: 300px;
-  max-height: 100%;
+  width: 82vw;
+  max-height: 82%;
   transform: translate(15vw, 1vh);
   overflow: hidden; 
 }
@@ -456,7 +460,7 @@ margin-bottom: 2rem;
   line-height: 1;
 }
 
-/* Blog posts */
+/* Blog posts  ------------------------ */
 .blog-posts {
   display: flex;
   flex-direction: column;
@@ -465,7 +469,6 @@ margin-bottom: 2rem;
 
 .blog-post {
   margin-bottom: 2rem;
-  padding: .5rem;
   border-bottom: 1px solid #ccc;
 }
 
@@ -476,6 +479,7 @@ margin-bottom: 2rem;
 .post-title-wrapper {
   margin-block-start: 1.6rem;
   height: 9.4rem;
+  padding: 0 .5rem;
 }
 
 
@@ -487,6 +491,9 @@ margin-bottom: 2rem;
   line-height: 1.18;
   /* margin-bottom: 7.5rem; */
   letter-spacing: -0.04em;
+}
+.post-content {
+  padding: 0 .5rem;
 }
 
 .post-loading {
@@ -507,7 +514,6 @@ margin-bottom: 2rem;
   font-size: .9rem;
   opacity: .7;
   margin-top: 3rem;
-  margin-left: -0.5rem;
 }
 
 
@@ -516,6 +522,7 @@ margin-bottom: 2rem;
   align-items: center; /* vertically align elements in the wrapper */
   gap: 0.6rem;
   margin-bottom: 2rem;
+  padding: 0 .5rem;
 }
 
 .post-language-btn {
@@ -547,12 +554,8 @@ margin-bottom: 2rem;
 }
 
 .post-main-image {
-  position: relative;
-  left: 50%;
-  right: 50%;
-  width: 100vw;
-  max-width: none;
-  transform: translateX(-50%);
+  width: 100%;
+  max-width: 800px;
   height: auto;
   display: block;
 }
@@ -596,4 +599,5 @@ margin-bottom: 2rem;
   .site-main-image {
     width: calc(var(--mobile-col)* 5 + 40px);
   }
+
 }

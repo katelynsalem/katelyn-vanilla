@@ -99,18 +99,7 @@ nav a {
     color: #333;
   }
   
-  /* Desktop layout */
-  @media (min-width: 768px) {
-    #hamburger {
-      display: none;
-    }
-  
-    #hamburger-menu {
-      display: flex;
-      flex-direction: row;
-      gap: 2rem;
-    }
-  }
+
 
   /* Hamburger for animation */
 body {
