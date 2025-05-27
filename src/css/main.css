@@ -1,5 +1,17 @@
 /* src/css/main.css */
 
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    /*transform: translateY(10px); /* slight upward motion */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* === Base styles (mobile first) === */
 
 :root {
@@ -45,10 +57,18 @@ footer {
 
 main {
   max-width: 100%;
+    /* Universal page using fadeIn animation */
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out forwards;
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 2.125rem;
+  line-height: 2.5rem;
+  letter-spacing: -0.04em;
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  font-weight: 500;
 }
 
 h2 {
@@ -65,7 +85,11 @@ h3 {
 }
 
 h4 {
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
+  font-family: 'Work Sans', sans-serif;
+  margin: 0;
+  font-weight: 500;
 }
 
 img {
@@ -188,7 +212,7 @@ a:focus::after {
   overflow:hidden;
 }
 
-/* Built For Archives does a good job with sizing for different screens */
+/* Landing Page ------------------------ */
 .site-main-image {
   position: absolute;
   width: 300px;
@@ -284,6 +308,145 @@ a:focus::after {
   pointer-events: auto;
 }
 
+/* Recent Posts ------------------------- */
+
+#recent-posts {
+  padding-top: 58px;
+}
+
+.recent-post-wrapper {
+  padding: 1.5rem 0;
+}
+
+.recent-posts-header-wrapper {
+  margin-block-start: 12rem;
+  margin-bottom: 1rem;
+}
+
+.recent-posts-content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: auto auto auto auto;
+}
+
+.recent-posts-title {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+
+.recent-posts-title h2 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.recent-posts-category {
+  grid-column: 1 / 3;
+  grid-row: 2 / 3;
+  justify-self: end;
+}
+
+.recent-posts-date {
+  grid-column: 1 / 2;
+  grid-row: 3 / 4;
+}
+
+.recent-posts-tags {
+  grid-column: 2 / 3;
+  grid-row: 3 / 4;
+  justify-self: end;
+}
+
+.recent-posts-image-wrapper {
+  grid-column: 1 / 3;
+  grid-row: 4 / 5;
+  padding: 0.6rem 0;
+
+  /* make the aspect ratio always 16:9 and fill to the width then hide any overflow of the image*/
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.recent-posts-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.recent-posts-data {
+  font-size: .8rem;
+}
+
+/* Blog Feed ------------------------------- */
+
+#blog-feed {
+padding-top: 6rem;
+margin-bottom: 2rem;
+}
+
+.blog-feed-wrapper {
+  border-bottom: 1px solid #ccc;
+}
+
+.blog-feed-header-wrapper {
+  margin-bottom: 1rem;
+}
+
+.blog-feed-content-wrapper {
+  padding: 1rem 0;
+}
+
+.blog-feed-date {
+  font-size: .8rem;
+  padding-left: 1rem;
+}
+
+.blog-feed-title h2 {
+  font-family: 'Roboto Mono',monospace;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+
+/* About Page ------------------------- */
+#about-container {
+  padding-top: 58px;
+ }
+.about {
+  margin-bottom: 2rem;
+  padding: .5rem;
+  border-bottom: 1px solid #ccc;
+}
+.about-date {
+  font-size: .9rem;
+  opacity: .7;
+  margin-left: -0.5rem;
+}
+.about-summary {
+  height: 8rem;
+}
+.about-title-wrapper {
+  margin-block-start: 1.6rem;
+  height: 9.4rem;
+}
+
+.about ul {
+  padding-inline-start: 1rem;
+  padding-bottom: 1rem;
+}
+
+.about-language-wrapper {
+  display: flex;
+  align-items: center; /* vertically align elements in the wrapper */
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+
 .post-arrow {
   font-size: 0.8rem; /* adjust the size as needed */
   /* margin-left: -0.7rem; */
@@ -307,13 +470,15 @@ a:focus::after {
 }
 
 #post-container {
-  padding-top: 50px;
+  padding-top: 58px;
  }
 
 .post-title-wrapper {
-  margin-block-start: 0.83em;
+  margin-block-start: 1.6rem;
   height: 9.4rem;
 }
+
+
 
 .post-title {
   font-family: 'Work Sans', sans-serif;
@@ -329,6 +494,13 @@ a:focus::after {
   align-items: center !important;
   justify-content: center !important;
   min-height: 100vh !important;
+}
+
+.mini-post-loading {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 25vh !important;
 }
 
 .meta-data {

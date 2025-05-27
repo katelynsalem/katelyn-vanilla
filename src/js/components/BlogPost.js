@@ -11,19 +11,27 @@ export function BlogPost({ title, language, date, content, imageUrl, footnotes =
     });
     article.innerHTML = parsedContent;
 
-    // Create footnotes section
-    const footnotesSection = document.createElement('div');
-    footnotesSection.classList.add('footnotes', 'meta-data');
-    footnotes.forEach((text, i) => {
-      const number = i + 1;
-      const p = document.createElement('p');
-      p.id = `fn${number}`;
-      p.innerHTML = `<a href="#fnref${number}" aria-label="Back to content">['${number}']</a>`;
-      footnotesSection.appendChild(p);
-      const ptext = document.createElement('p');
-      ptext.innerHTML = `${text}`;
-      footnotesSection.appendChild(ptext);
-    });
+    // Create footnotes section if there are footnotes
+    let footnotesSection = null;
+
+    if (Array.isArray(footnotes) && footnotes.length) {
+      footnotesSection = document.createElement('div');
+      footnotesSection.classList.add('footnotes', 'meta-data');
+    
+      footnotes.forEach((text, i) => {
+        const number = i + 1;
+        const p = document.createElement('p');
+        p.id = `fn${number}`;
+        p.innerHTML = `<a href="#fnref${number}" aria-label="Back to content">['${number}']</a>`;
+        footnotesSection.appendChild(p);
+    
+        const ptext = document.createElement('p');
+        ptext.innerHTML = `${text}`;
+        footnotesSection.appendChild(ptext);
+      });
+    }
+    
+    
 
 
     article.innerHTML = `
@@ -32,7 +40,7 @@ export function BlogPost({ title, language, date, content, imageUrl, footnotes =
         : `<div class="post-main-image-placeholder"></div>`
       }
       <div class="post-title-wrapper">
-        <h2 class="post-title text-scramble">${title.en}</h2>
+        <h1 class="post-title text-scramble">${title.en}</h1>
       </div>
       <div class="post-language-wrapper">
       </div>
@@ -106,7 +114,7 @@ export function BlogPost({ title, language, date, content, imageUrl, footnotes =
   }
 
     // Add Footnotes if there are any
-    if (footnotes.length) article.appendChild(footnotesSection);
+    if (footnotesSection) article.appendChild(footnotesSection);
 
     return article;
   }

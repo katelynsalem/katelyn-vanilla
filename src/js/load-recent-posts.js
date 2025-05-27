@@ -1,5 +1,5 @@
 import { renderRecentPosts } from "./components/RecentPosts.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  renderRecentPosts("#recent-posts-container");
+  renderRecentPosts(".recent-posts-container");
 });

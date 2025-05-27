@@ -1,10 +1,10 @@
-import { API_URL } from './config.js';
+//import { API_URL } from '../config.js';
 
 export async function renderBlogFeed(containerSelector) {
     const container = document.querySelector(containerSelector);
     if (!container) return;
   
-    const endpoint = `${API_URL}/posts`;
+    const endpoint = `https://katelyn-vanilla-backend.onrender.com/posts`;
 
     let posts = [];
     try {
@@ -18,18 +18,16 @@ export async function renderBlogFeed(containerSelector) {
     const feed = posts.slice(2, 10);
   
     container.innerHTML = "";
-  
-    const heading = document.createElement("h2");
-    heading.textContent = "Feed";
-    container.appendChild(heading);
+
   
     feed.forEach(post => {
-      const el = document.createElement("div");
-      el.classList.add("blog-feed-entry");
+      const el = document.createElement("article");
+      el.classList.add("blog-feed-wrapper");
       el.innerHTML = `
-        <div class="feed-date">${post.date}</div>
-        <div class="feed-title">→ ${post.title}</div>
-        <div class="feed-preview">${post.preview}</div>
+        <div class="blog-feed-content-wrapper">
+            <div class="blog-feed-date">${post.date}</div>
+            <div class="blog-feed-title"><h2><a href="/post.html?id=${post.id}">→ ${post.title.en}</a></h2></div>
+        </div>
       `;
       container.appendChild(el);
     });
