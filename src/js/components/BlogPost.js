@@ -36,7 +36,7 @@ export function BlogPost({ title, language, date, content, imageUrl, footnotes =
 
     article.innerHTML = `
       ${imageUrl 
-        ? `<img src="${imageUrl}" alt="${title.en} image" class="post-main-image">` 
+        ? `<div class="post-main-image-wrapper"><img src="${imageUrl}" alt="${title.en} image" class="post-main-image"></div>` 
         : `<div class="post-main-image-placeholder"></div>`
       }
       <div class="post-title-wrapper">

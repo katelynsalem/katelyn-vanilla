@@ -15,7 +15,7 @@ export async function renderRecentPosts(containerSelector) {
       console.error('Error fetching recent posts:', err);
     }
 
-    const recent = posts.slice(0, 2);
+    const recent = posts.slice(0, 5);
     container.innerHTML = "";
 
     // const headingWrapper = document.createElement("div");
@@ -28,21 +28,31 @@ export async function renderRecentPosts(containerSelector) {
     recent.forEach(post => {
       const el = document.createElement("article");
       el.classList.add("recent-post-wrapper");
+      const previewText = post.content?.en
+      ? post.content.en.slice(0, 125) + (post.content.en.length > 125 ? `<a href="/post.html?id=${post.id}">[...]</a>` : '')
+      : '';    
       el.innerHTML = `
         <div class="recent-posts-content-wrapper">
             <div class="recent-posts-title">
               <h2><a href="/post.html?id=${post.id}">${post.title.en}</a></h2>
             </div>
-            <div class="recent-posts-category recent-posts-data">/'Category'/</div>
+            <div class="recent-posts-category recent-posts-data">/’${post.category}’/</div>
             <div class="recent-posts-date recent-posts-data">${post.date}</div>
             <div class="recent-posts-tags recent-posts-data">${post.tags.map(tag => `#${tag}`).join(' ')}</div>
-            <div class="recent-posts-image-wrapper">
-              <a href="/post.html?id=${post.id}"><img class="recent-posts-image" src="${post.imageUrl}" alt="${post.title.en}" /></a>
-            </div>
+              ${post.imageUrl 
+                ? `<div class="recent-posts-image-wrapper">
+                    <a href="/post.html?id=${post.id}"><img class="recent-posts-image" src="${post.imageUrl}" alt="${post.title.en}" /></a>
+                  </div>
+                  <div class="recent-posts-image-preview"><p>${previewText}</p></div>` 
+                : `<div class="recent-posts-preview"><p>${previewText}</p></div>`
+              }
         </div>
       `;
       container.appendChild(el);
     });
   }
 
-  
+  // ${post.content.ko
+  //   ? `<div class="recent-posts-korean recent-posts-data">/’한국어로도’/</div>`
+  //   : ``
+  // }
