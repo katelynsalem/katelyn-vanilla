@@ -527,6 +527,9 @@ margin-bottom: 2rem;
 .post-content {
   padding: 0 .5rem;
 }
+.post-content li {
+  padding: .25rem 0;
+}
 
 .post-loading {
   display: flex !important;
@@ -613,7 +616,8 @@ margin-bottom: 2rem;
   margin-top: 0;
 }
 .footnotes a {
-  text-decoration: none;
+  text-decoration: underline;
+  padding: .25rem 0;
 }
 
 .over-left {
