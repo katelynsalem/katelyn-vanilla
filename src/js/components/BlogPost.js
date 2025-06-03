@@ -22,7 +22,7 @@ export function BlogPost({ title, language, date, content, imageUrl, footnotes =
         const number = i + 1;
         const p = document.createElement('p');
         p.id = `fn${number}`;
-        p.innerHTML = `<a href="#fnref${number}" aria-label="Back to content">['${number}']</a>`;
+        p.innerHTML = `['${number}']`;
         footnotesSection.appendChild(p);
     
         const ptext = document.createElement('p');
@@ -94,7 +94,13 @@ export function BlogPost({ title, language, date, content, imageUrl, footnotes =
       // First: update title with slight delay for content
       scrambleTitle.setText(title[newLang]);
       setTimeout(() => {
-        scrambleContent.setText(content[newLang]);
+
+        // Replace footnotes in content before scrambling
+        const parsed = content[newLang].replace(/<sup data-fn=['"](\d+)['"]><\/sup>/g, (match, number) => {
+          return `<sup id="fnref${number}"><a href="#fn${number}">${number}</a></sup>`;
+        });
+        
+        scrambleContent.setText(parsed);
         scrambleButton.setText(isEnglish ? '/’한국어로 바꾸기’/' : '/’Switch to English’/');
       
         // // Toggle footnotes
