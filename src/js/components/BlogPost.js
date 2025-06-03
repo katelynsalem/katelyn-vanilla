@@ -45,7 +45,7 @@ export function BlogPost({ title, language, date, content, imageUrl, footnotes =
       <div class="post-language-wrapper">
       </div>
       <p class="post-date meta-data">${date}</p>
-      <div class="post-content text-scramble">${content.en}</div>
+      <div class="post-content text-scramble">${parsedContent}</div>
       
     `;
 

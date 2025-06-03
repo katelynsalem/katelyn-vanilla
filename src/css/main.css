@@ -33,6 +33,10 @@
   background-color: var(--white);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -122,7 +126,7 @@ button:focus-visible {
 
 a {
   font-weight: 400;
-  text-decoration: underline;
+  text-decoration: none;
   position: relative;
   color: inherit;
   font: inherit;
@@ -509,7 +513,7 @@ margin-bottom: 2rem;
  }
 
 .post-title-wrapper {
-  margin-block-start: 1.6rem;
+  margin-block-start: 2rem;
   height: 13rem;
   padding: 0 .5rem;
 }
@@ -529,6 +533,9 @@ margin-bottom: 2rem;
 }
 .post-content li {
   padding: .25rem 0;
+}
+.post-content a {
+  text-decoration: underline;
 }
 
 .post-loading {
@@ -603,7 +610,7 @@ margin-bottom: 2rem;
   object-fit: cover;
 }
 .post-main-image-placeholder {
-  height: 3rem;
+  height: 2.5rem;
   background-color: inherit;
 }
 
