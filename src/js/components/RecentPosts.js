@@ -15,7 +15,8 @@ export async function renderRecentPosts(containerSelector) {
       console.error('Error fetching recent posts:', err);
     }
 
-    const recent = posts.slice(0, 5);
+    const recent = posts.filter(post => post.publish).slice(0, 5);
+
     container.innerHTML = "";
 
     // const headingWrapper = document.createElement("div");
